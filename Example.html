@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let SwitchButton=function () {
+        this.switchOn = function () {
+            this.status = true;
+        };
+        this.switchOff = function () {
+            this.status = false
+        };
+        this.connectToLamp = function (lamp) {
+            if (this.status) {
+                if (lamp.status) {
+                    document.write("switch button: on , "+ " The light is on"+"<br>")
+                } else {
+                    document.write("switch button: on , "+ "The light is off"+"<br>")
+                }
+            }else {
+                document.write("switch button: off , "+ " No electric power connect to Lamp"+"<br>")
+            }
+        };
+    };
+    let ElectricLamp=function () {
+        this.turnOn=function () {
+            this.status=true;
+        };
+        this.turnOff=function () {
+            this.status=false;
+        }
+    };
+    let SwitchButton1=new SwitchButton();
+    let ElectricLamp1=new ElectricLamp();
+    /*SwitchButton1.switchOn();
+    ElectricLamp1.turnOff();
+    SwitchButton1.connectToLamp(ElectricLamp1);*/
+    for(let i=1;i<=10;i++){
+        if(i%2===1){
+            SwitchButton1.switchOn();
+            ElectricLamp1.turnOn();
+            SwitchButton1.connectToLamp(ElectricLamp1);
+        }else {
+            SwitchButton1.switchOff();
+            ElectricLamp1.turnOn();
+            SwitchButton1.connectToLamp(ElectricLamp1);
+        }
+    }
+</script>
+</body>
+</html>
